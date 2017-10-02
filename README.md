@@ -2,5 +2,5 @@ For this to work, have images.py and labels.py in the same directory as the temp
 Also, to make sure you have everything and no error, do this command in ur os terminal
       " conda create --name 'Whatever name you want' scipy scikit-learn matplotlib pandas tensorflow "
 Then do
-    " activate 'Whatever name you want>' "
+    " activate 'Whatever name you want' "
   and then install keras and you should be good
