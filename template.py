@@ -39,13 +39,23 @@ model.compile(optimizer='sgd',
 # Train Model
 history = model.fit(x_train, y_train,
                     validation_data = (x_val, y_val), 
-                    epochs=20, 
+                    epochs=100, 
                     batch_size=512)
 
 
 # Report Results
 
 print(history.history)
+scores = model.evaluate(x_val, y_val, batch_size=975)
+print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 prediction = model.predict(x_test)
+
+i = 0
+while i < 16250:
+    print("Predicted: ", prediction[i])
+    print("Expected: ", y_test[i])
+    i+=1
+    
+
 
 
