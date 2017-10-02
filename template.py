@@ -21,12 +21,10 @@ x_val, x_test, y_val, y_test = train_test_split(x_rest, y_rest, test_size=0.625)
 
 model = Sequential() # declare model
 
-model.add(Dense(10, input_shape=(28*28, ), kernel_initializer='he_normal')) # first layer
-
-
-
-
-
+model.add(Dense(25, input_shape=(28*28, ), kernel_initializer='he_normal')) # first layer
+model.add(Activation('relu'))
+model.add(Dense(23, kernel_initializer='he_normal'))
+model.add(Activation('relu'))
 model.add(Dense(10, kernel_initializer='he_normal')) # last layer
 model.add(Activation('softmax'))
 
@@ -41,7 +39,7 @@ model.compile(optimizer='sgd',
 # Train Model
 history = model.fit(x_train, y_train,
                     validation_data = (x_val, y_val), 
-                    epochs=10, 
+                    epochs=20, 
                     batch_size=512)
 
 
@@ -49,4 +47,5 @@ history = model.fit(x_train, y_train,
 
 print(history.history)
 prediction = model.predict(x_test)
+
 
