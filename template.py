@@ -40,7 +40,7 @@ model.compile(optimizer='sgd',
 # Train Model
 history = model.fit(x_train, y_train,
                     validation_data = (x_val, y_val), 
-                    epochs=200, 
+                    epochs=100, 
                     batch_size=512)
 
 
@@ -50,21 +50,82 @@ print(history.history)
 scores = model.evaluate(x_val, y_val, batch_size=512)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 prediction = model.predict(x_test)
-
+print("")
 # Plot a Graph showing training set and validation accuracy over epoch
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
 plt.title('Model Accuracy')
 plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
-plt.legend(['Training', 'Validation'], loc='upper left')
+plt.legend(['Training', 'Validation'], loc='lower right')
 plt.show()
 
-'''
+count = 0
 i = 0
+j = 0
+error = [0,0,0]
+pTemp = [0,0,0,0,0,0,0,0,0,0]
+
+# Get Wrongly Classified Image
 while i < 1625:
-    print("Predicted: ", prediction[i])
-    print("Expected: ", y_test[i])
+    j = 0
+    for p in prediction[i]:
+        pTemp[j] = round(p)
+        j+=1
+    prediction[i] = pTemp
+    a = 0
+    tTemp = y_test[i]
+    if count < 3:
+        for predicted in prediction[i]:
+            if tTemp[a] != predicted:
+                error[count] = i
+                count += 1
+                break;
+            a += 1    
     i+=1
+
+size = 0
+confusion_matrix = [[0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0]]
+
+while size < 1625:
+    preMarker = 0
+    testMarker = 0
+    temp = confusion_matrix[testMarker][preMarker]
+    for test in y_test[size]:
+        if test == 1:
+            for pre in prediction[size]:
+                if pre == 1:
+                    confusion_matrix[testMarker][preMarker] = temp + 1
+                if preMarker < 9:
+                    preMarker += 1
+        if testMarker < 9:
+            testMarker += 1
+    size += 1
+
+print("Confusion Matrix")
+print("")
+print("The row is Prediction Label and the column is True Label")
+print("")
+print(np.matrix(confusion_matrix))
+
+# Show the Image
+for e in error:
+    label = y_test
+    pixels = x_test[e]
+    pixels = np.array(pixels, dtype='uint8')
+    pixels = pixels.reshape(28,28)
+    plt.title(prediction[e])
+    plt.imshow(pixels, cmap= 'gray')
+    plt.show()
     
-'''
+
+
