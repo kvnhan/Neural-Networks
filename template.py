@@ -23,8 +23,8 @@ model = Sequential() # declare model
 
 model.add(Dense(25, input_shape=(28*28, ), kernel_initializer='he_normal')) # first layer
 model.add(Activation('relu'))
-model.add(Dense(23, kernel_initializer='he_normal'))
-model.add(Activation('relu'))
+model.add(Dense(100, kernel_initializer='he_normal'))
+model.add(Activation('tanh'))
 model.add(Dense(10, kernel_initializer='he_normal')) # last layer
 model.add(Activation('softmax'))
 
@@ -39,23 +39,24 @@ model.compile(optimizer='sgd',
 # Train Model
 history = model.fit(x_train, y_train,
                     validation_data = (x_val, y_val), 
-                    epochs=100, 
+                    epochs=20, 
                     batch_size=512)
 
 
 # Report Results
 
 print(history.history)
-scores = model.evaluate(x_val, y_val, batch_size=975)
+scores = model.evaluate(x_val, y_val, batch_size=512)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 prediction = model.predict(x_test)
 
+'''
 i = 0
 while i < 16250:
     print("Predicted: ", prediction[i])
     print("Expected: ", y_test[i])
     i+=1
     
-
+'''
 
 
