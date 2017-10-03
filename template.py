@@ -3,6 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, cohen_kappa_score
 from sklearn.cross_validation import train_test_split
+from keras.models import load_model
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -129,5 +130,8 @@ for e in error:
     plt.imshow(pixels, cmap= 'gray')
     plt.show()
     
+model.save('my_model.h5')
+del model
 
+model = load_model('my_model.h5')
 
