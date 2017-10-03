@@ -1,6 +1,7 @@
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, cohen_kappa_score
 from sklearn.cross_validation import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
@@ -80,7 +81,7 @@ while i < 1625:
             if tTemp[a] != predicted:
                 error[count] = i
                 count += 1
-                break;
+                break
             a += 1    
     i+=1
 
@@ -99,11 +100,11 @@ confusion_matrix = [[0,0,0,0,0,0,0,0,0,0],
 while size < 1625:
     preMarker = 0
     testMarker = 0
-    temp = confusion_matrix[testMarker][preMarker]
     for test in y_test[size]:
         if test == 1:
             for pre in prediction[size]:
                 if pre == 1:
+                    temp = confusion_matrix[testMarker][preMarker]
                     confusion_matrix[testMarker][preMarker] = temp + 1
                 if preMarker < 9:
                     preMarker += 1
@@ -116,6 +117,7 @@ print("")
 print("The row is Prediction Label and the column is True Label")
 print("")
 print(np.matrix(confusion_matrix))
+
 
 # Show the Image
 for e in error:
