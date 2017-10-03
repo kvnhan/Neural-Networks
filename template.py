@@ -2,6 +2,7 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from sklearn.cross_validation import train_test_split
+import matplotlib.pyplot as plt
 import numpy as np
 
 image_data = np.load('images.npy')
@@ -39,7 +40,7 @@ model.compile(optimizer='sgd',
 # Train Model
 history = model.fit(x_train, y_train,
                     validation_data = (x_val, y_val), 
-                    epochs=20, 
+                    epochs=200, 
                     batch_size=512)
 
 
@@ -50,13 +51,20 @@ scores = model.evaluate(x_val, y_val, batch_size=512)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 prediction = model.predict(x_test)
 
+# Plot a Graph showing training set and validation accuracy over epoch
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('Model Accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Training', 'Validation'], loc='upper left')
+plt.show()
+
 '''
 i = 0
-while i < 16250:
+while i < 1625:
     print("Predicted: ", prediction[i])
     print("Expected: ", y_test[i])
     i+=1
     
 '''
-
-
