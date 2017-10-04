@@ -25,9 +25,9 @@ x_val, x_test, y_val, y_test = train_test_split(x_rest, y_rest, test_size=0.625)
 model = Sequential() # declare model
 
 model.add(Dense(25, input_shape=(28*28, ), kernel_initializer='he_normal')) # first layer
-model.add(Activation('relu'))
-model.add(Dense(100, kernel_initializer='he_normal'))
 model.add(Activation('tanh'))
+model.add(Dense(100, kernel_initializer='he_normal'))
+model.add(Activation('relu'))
 model.add(Dense(10, kernel_initializer='he_normal')) # last layer
 model.add(Activation('softmax'))
 
