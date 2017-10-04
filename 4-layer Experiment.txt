@@ -1,0 +1,70 @@
+	Layer   Node   Kernel_Init   Activtion  Epoch   Batch_size      Accurracy                               Success?
+1	1	25	he_normal	relu	100	512		52.31					No 
+	2	20	he_normal	relu									
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
+													
+2	1	25	he_normal	tanh	100	512		83.59	84.5	79.69	82.87	84.62	Yes
+	2	20	he_normal	tanh				84	83.08	81.95	84	81.64	
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+3	1	25	he_normal	relu	100	512		84.21	78.26	86.67	87.08	83.49	Yes
+	2	20	he_normal	tanh				82.56	84.1	84	80.92	81.85	
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
+													
+4	1	25	he_normal	tanh	100	512		85.54	81.54	85.33	84.92	84.21	Yes
+	2	20	he_normal	relu				82.05	84.21	81.23	82.56	82.56	
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+5	1	25	he_normal	tanh	100	512		80.72	81.95	82.87	82.05	80.92	Yes
+	2	20	he_normal	tanh				75.49	82.77	82.26	82.15	83.18	
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
+													
+6	1	25	he_normal	relu	100	512		82.97	88.41	85.95	83.59	84	Yes
+	2	20	he_normal	tanh				81.33	82.05	85.64	85.74	83.18	
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+7	1	10	he_normal	tanh	100	512		77.85	77.03	73.95	74.67	75.9	Yes
+	2	25	he_normal	tanh				81.95	75.18	76.41	75.49	69.54	
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
+													
+8	1	10	he_normal	tanh	100	512		78.67	76.21	75.49	80.31	79.38	No
+	2	25	he_normal	relu				63.18					
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+9	1	10	he_normal	relu	100	512		73.03	74.97	73.44	80	77.54	No
+	2	25	he_normal	tanh				78.87	69.33				
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
+													
+10	1	10	he_normal	relu	100	512		50.56					No
+	2	25	he_normal	relu									
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
+													
+11	1	10	he_normal	relu	100	512		75.08	84	80.97	71.59	81.74	Yes
+	2	25	he_normal	tanh				76	84	83.28	78.97	76.21	
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+12	1	10	he_normal	relu	100	512		73.54	75.28	73.44	62.97		No
+	2	25	he_normal	relu				81.54	83.79	78.67			
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+13	1	10	he_normal	tanh	100	512		73.85	78.46	79.08	75.9	73.95	No
+	2	25	he_normal	tanh				74.05	79.28	73.64	82.05	57.85	
+	3	15	he_normal	tanh									
+	4	10	he_normal	softmax									
+													
+14	1	10	he_normal	tanh	100	512		80.1	78.46	64.77			No
+	2	25	he_normal	relu				79.18	77.13				
+	3	15	he_normal	relu									
+	4	10	he_normal	softmax									
