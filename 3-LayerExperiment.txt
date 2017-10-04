@@ -1,5 +1,4 @@
-THREE LAYERS
-
+Last layer is not mentioned because Node = 10 and Activation = Softmax.
 
 Layer	Node	kernel_Initializer	Activation	Epochs	Batch_Size 	Accuracy
 1	100	“he_normal”		relu		100		512		20%	
