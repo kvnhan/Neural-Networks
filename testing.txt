@@ -1,3 +1,5 @@
+THREE LAYERS
+
 
 Layer	Node	kernel_Initializer	Activation	Epochs	Batch_Size 	Accuracy
 1	100	“he_normal”		relu		100		512		20%	
