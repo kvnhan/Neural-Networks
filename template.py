@@ -130,8 +130,8 @@ for e in error:
     plt.imshow(pixels, cmap= 'gray')
     plt.show()
     
-model.save('my_model.h5')
+model.save('trained_model.h5')
 del model
 
-model = load_model('my_model.h5')
+model = load_model('trained_model.h5')
 
