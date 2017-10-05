@@ -4,12 +4,14 @@ Directory:
  - images.py
  - labels.py
  - template.py
- - N-LayerExperiment.txt
- - best_model.h5
+ - 3-LayerExperiment.txt
+ - 4-LayerExperiment.txt
+ - trained_model.h5
  - AI_Project3_Report.doc
  
 Prerequisites:
  - Andaconda
+ - HDF5
  - Keras
 
 Initial:
