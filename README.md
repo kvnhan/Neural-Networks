@@ -1,6 +1,7 @@
 README.txt
 -
-Jonathan Metzger, Kien Nhan, Joseph Wilder
+- Jonathan Metzger, Kien Nhan, Joseph Wilder
+
 Directory:
  - images.py
  - labels.py
